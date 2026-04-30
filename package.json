@@ -13,7 +13,7 @@
   "license": "MIT",
   "author": "Jerdon Litaoen",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
