@@ -17,17 +17,16 @@ const server = createServer((req, res) => {
         const id = parseInt(req.url.split('/')[3])
         const user = users.find(user => user.id === id)
 
+        res.setHeader('Content-Type', 'application/json')
+
         if (user) {
-            res.setHeader('Content-Type', 'application/json')
             res.write(JSON.stringify(user))
-            res.end()
         } else {
-            res.writeHead(404, { 'Content-Type': 'application/json' })
             res.statusCode = 404
-            res.write(JSON.stringify({ message: 'Route not found' }))
-            res.end('User not found')
+            res.write(JSON.stringify({ message: 'User not found' }))
         }
     }
+    res.end()
 })
 
 server.listen(PORT, () => {
